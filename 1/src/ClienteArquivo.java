@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class ClienteArquivo {
     
 
@@ -8,10 +10,10 @@ public class ClienteArquivo {
     static Cliente buscarPorCPF(String CPF){
 
     }
-    static Cliente[] bucasPorNome(String nome){
+    static ArrayList<Cliente> bucasPorNome(String nome){
 
     }
-    static Cliente[] listar(){
+    static ArrayList<Cliente> listar(){
 
     }
     static boolean excluir(String CPF){

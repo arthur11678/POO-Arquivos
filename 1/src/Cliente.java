@@ -4,6 +4,8 @@ public class Cliente {
     private String endereco;
     private String dataNascimento;
 
+    public Cliente(){};
+
     public Cliente(Cliente cliente){
         this.CPF = cliente.CPF;
         this.nome = cliente.nome;

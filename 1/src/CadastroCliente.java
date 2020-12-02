@@ -1,24 +1,33 @@
+import java.util.ArrayList;
+
 public class CadastroCliente {
-    Cliente[] cadastro = new Cliente[10];
-    int clientes = 0;
+    ArrayList<Cliente> cadastro = new ArrayList<Cliente>();
 
     static void inserir(Cliente cliente) {
-        ClienteArquivo.inserir(cliente);
+        try{
+            buscar_cpf(cliente.getCPF());
+            throw new ClienteJaExistenteException("“Não foi possível cadastrar o cliente");
+        } catch (ClienteInexistenteException e){
+            ClienteArquivo.inserir(cliente);
         }
-
-    public Cliente buscar(String cpf) {
-        return ClienteArquivo.buscarPorCPF(cpf);
     }
 
-    public void listar(){
-        Cliente[] clientes;
+    static Cliente buscar_cpf(String cpf) {
+        return ClienteArquivo.buscarPorCPF(cpf);
+    }
+    static ArrayList<Cliente> buscar_nome(String nome){
+        return ClienteArquivo.bucasPorNome(nome);
+    }
+
+    static void listar(){
+        ArrayList<Cliente> clientes = new ArrayList<Cliente>();
         clientes = ClienteArquivo.listar();
         for(Cliente cliente: clientes){
             System.out.println(cliente);
         }
     }
 
-    public boolean excluir(String cpf){
+    static boolean excluir(String cpf){
         return ClienteArquivo.excluir(cpf);
     }
 }
