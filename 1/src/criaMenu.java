@@ -1,8 +1,9 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class criaMenu {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
         Scanner teclado = new Scanner(System.in);
         int acao;
         System.out.println("1 - Cadastrar novo cliente");
